@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net461;net472</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release</Configurations>
+    <OutputPath>bin\$(Configuration)\$(TargetFrameworkVersion)\</OutputPath>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\QoDL.DataAnnotations.Security.xml</DocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>ChristianH</Authors>
+    <Company>ChristianH</Company>
+    <Copyright>ChristianH</Copyright>
+    <Version>1.0.1</Version>
+    <Description>Various security logic.</Description>
+    <PackageProjectUrl>https://github.com/chhjel/QoDL.Validation/tree/main/QoDL.DataAnnotations.Security</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <!-- .NET STANDARD ######################### -->
+  <!-- Compiler flags -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <!-- ####################################### -->
+
+  <!-- .NET FRAMEWORK ######################## -->
+  <!-- Compiler flags -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net461'">
+    <DefineConstants>NETFULL;NET461</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net472'">
+    <DefineConstants>NETFULL;NET472</DefineConstants>
+  </PropertyGroup>
+  <!-- References -->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net472' ">
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <!-- ####################################### -->
+
+</Project>

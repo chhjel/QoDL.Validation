@@ -1,0 +1,82 @@
+﻿@model TestModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@if (Html.DidSessionTokenValidationFailThisRequest())
+{
+    <h3>SESSION VALIDATION FAILED, TRY AGAIN</h3>
+}
+
+@using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x => x.SomeRequiredBool)
+        @Html.EditorFor(x => x.SomeRequiredBool)
+        @Html.ValidationMessageFor(x => x.SomeRequiredBool)
+    </div>
+    
+    <div>
+        @Html.LabelFor(x => x.SomeRequiredDate)
+        @Html.EditorFor(x => x.SomeRequiredDate)
+        @Html.ValidationMessageFor(x => x.SomeRequiredDate)
+    </div>
+    
+    <div>
+        @Html.LabelFor(x => x.SomeRequiredInt)
+        @Html.EditorFor(x => x.SomeRequiredInt)
+        @Html.ValidationMessageFor(x => x.SomeRequiredInt)
+    </div>
+    
+    <div>
+        @Html.LabelFor(x => x.SomeRequiredString)
+        @Html.EditorFor(x => x.SomeRequiredString)
+        @Html.ValidationMessageFor(x => x.SomeRequiredString)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Phone)
+        @Html.EditorFor(x => x.Phone)
+        @Html.ValidationMessageFor(x => x.Phone)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.OptionalPhone)
+        @Html.EditorFor(x => x.OptionalPhone)
+        @Html.ValidationMessageFor(x => x.OptionalPhone)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.AnotherThingWithoutValidation)
+        @Html.EditorFor(x => x.AnotherThingWithoutValidation)
+        @Html.ValidationMessageFor(x => x.AnotherThingWithoutValidation)
+    </div>
+
+    @Html.AddAntiSpamGhostField()
+    @Html.AddValidateSessionTokenField()
+
+    <input type="submit" value="Test" />    
+}
+
+<hr />
+    
+<h2>GetModelLibraryValidationDefinitionAsJson</h2>
+<div>
+    <code>@Html.GetModelLibraryValidationDefinitionAsJson()</code>
+</div>
+
+<h2>GetModelErrorsDictionaryAsJson</h2>
+<div>
+    <code>@Html.GetModelErrorsDictionaryAsJson()</code>
+</div>
+
+<script>
+    window.validationDefinition = @Html.GetModelErrorsDictionaryAsJson();
+    window.validationErrors = @Html.GetModelLibraryValidationDefinitionAsJson();
+    
+    console.log(window.validationDefinition);
+    console.log(window.validationErrors);
+</script>

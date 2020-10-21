@@ -1,0 +1,33 @@
+name: Build main and publish nuget
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+     
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    
+    - name: Restore NuGet Packages
+      run: nuget restore QoDL.Validation.sln
+
+    - name: Set Build Number
+      run: echo "BUILD_VER=1.0.${env:GITHUB_RUN_NUMBER}" >> ${env:GITHUB_ENV}
+
+    - name: Build
+      run: msbuild QoDL.Validation.sln /p:Configuration=Release /p:Version=${env:BUILD_VER} /p:AssemblyVersion=${env:BUILD_VER} /p:FileVersion=${env:BUILD_VER}
+
+    - name: Publish LibraryValidation NuGet
+      run: dotnet nuget push QoDL.DataAnnotations.LibraryValidation\bin\Release\*.nupkg --api-key ${{ secrets.NuGetApiKey }} --source https://api.nuget.org/v3/index.json
+    - name: Publish Security NuGet
+      run: dotnet nuget push QoDL.DataAnnotations.Security\bin\Release\*.nupkg --api-key ${{ secrets.NuGetApiKey }} --source https://api.nuget.org/v3/index.json

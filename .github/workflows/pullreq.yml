@@ -1,0 +1,28 @@
+name: Build pull-request
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+     
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    
+    - name: Restore NuGet Packages
+      run: nuget restore QoDL.Validation.sln
+
+    - name: Set Build Number
+      run: echo "BUILD_VER=1.0.${env:GITHUB_RUN_NUMBER}" >> ${env:GITHUB_ENV}
+
+    - name: Build
+      run: msbuild QoDL.Validation.sln /p:Configuration=Release /p:Version=${env:BUILD_VER} /p:AssemblyVersion=${env:BUILD_VER} /p:FileVersion=${env:BUILD_VER}
