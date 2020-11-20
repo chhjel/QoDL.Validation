@@ -26,8 +26,12 @@ jobs:
 
     - name: Build
       run: msbuild QoDL.Validation.sln /p:Configuration=Release /p:Version=${env:BUILD_VER} /p:AssemblyVersion=${env:BUILD_VER} /p:FileVersion=${env:BUILD_VER}
+      
+    - name: Publish Extensions NuGet
+      run: dotnet nuget push QoDL.DataAnnotations.Extensions\bin\Release\*.nupkg --api-key ${{ secrets.NuGetApiKey }} --source https://api.nuget.org/v3/index.json
 
     - name: Publish LibraryValidation NuGet
       run: dotnet nuget push QoDL.DataAnnotations.LibraryValidation\bin\Release\*.nupkg --api-key ${{ secrets.NuGetApiKey }} --source https://api.nuget.org/v3/index.json
+    
     - name: Publish Security NuGet
       run: dotnet nuget push QoDL.DataAnnotations.Security\bin\Release\*.nupkg --api-key ${{ secrets.NuGetApiKey }} --source https://api.nuget.org/v3/index.json

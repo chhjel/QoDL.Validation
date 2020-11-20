@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace QoDL.DataAnnotations.LibraryValidation.Extensions
+namespace QoDL.DataAnnotations.Extensions.Extensions
 {
     /// <summary>
     /// Extensions for <see cref="Expression"/>s.

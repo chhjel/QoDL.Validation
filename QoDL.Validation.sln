@@ -9,7 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{EEFBE110-0FF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTesting", "Dev\DevTesting\DevTesting.csproj", "{F014CE36-C301-4799-9DAD-091518B0E280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QoDL.DataAnnotations.Security", "QoDL.DataAnnotations.Security\QoDL.DataAnnotations.Security.csproj", "{46CECFB7-B299-41B0-A847-D5773407037E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QoDL.DataAnnotations.Security", "QoDL.DataAnnotations.Security\QoDL.DataAnnotations.Security.csproj", "{46CECFB7-B299-41B0-A847-D5773407037E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QoDL.DataAnnotations.Extensions", "QoDL.DataAnnotations.Extensions\QoDL.DataAnnotations.Extensions.csproj", "{5C23B90A-4190-4E35-8F26-C2DE4A640884}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F0E21A95-63EC-488C-B424-310E19342165}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main.yml = .github\workflows\main.yml
+		.github\workflows\pullreq.yml = .github\workflows\pullreq.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7AD262F3-F040-4B9E-8A0A-F2CC2ACF8A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QoDL.DataAnnotations.Extensions.Tests", "Tests\QoDL.DataAnnotations.Extensions.Tests\QoDL.DataAnnotations.Extensions.Tests.csproj", "{6E8142D0-9EAD-4401-A173-780E2DBEBCC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +41,21 @@ Global
 		{46CECFB7-B299-41B0-A847-D5773407037E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CECFB7-B299-41B0-A847-D5773407037E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CECFB7-B299-41B0-A847-D5773407037E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C23B90A-4190-4E35-8F26-C2DE4A640884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C23B90A-4190-4E35-8F26-C2DE4A640884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C23B90A-4190-4E35-8F26-C2DE4A640884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C23B90A-4190-4E35-8F26-C2DE4A640884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E8142D0-9EAD-4401-A173-780E2DBEBCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E8142D0-9EAD-4401-A173-780E2DBEBCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E8142D0-9EAD-4401-A173-780E2DBEBCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E8142D0-9EAD-4401-A173-780E2DBEBCC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F014CE36-C301-4799-9DAD-091518B0E280} = {EEFBE110-0FF4-4C8B-8021-A69DF1FC8949}
+		{6E8142D0-9EAD-4401-A173-780E2DBEBCC7} = {7AD262F3-F040-4B9E-8A0A-F2CC2ACF8A9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA257786-398C-4D86-A300-9E571F247F8E}
