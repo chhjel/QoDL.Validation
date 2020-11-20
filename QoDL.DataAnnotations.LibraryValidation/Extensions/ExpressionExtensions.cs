@@ -14,7 +14,13 @@ namespace QoDL.DataAnnotations.LibraryValidation.Extensions
         /// </summary>
         public static string GetMemberName<TModel, TProperty>(this Expression<Func<TModel, TProperty>> propertyLambda)
         {
-            if (!(propertyLambda.Body is MemberExpression member))
+            var expression = propertyLambda.Body;
+            if (expression is UnaryExpression unExp && unExp.Operand is MemberExpression memberExp)
+            {
+                expression = memberExp;
+            }
+
+            if (!(expression is MemberExpression member))
             {
                 throw new ArgumentException($"Expression '{propertyLambda}' ({propertyLambda?.Body?.GetType().Name}) refers to a method, not a property/field.");
             }
