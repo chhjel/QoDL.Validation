@@ -5,7 +5,7 @@ using System;
 using System.Text;
 using System.Web.Mvc;
 
-namespace QoDL.DataAnnotations.LibraryValidation.Models
+namespace QoDL.DataAnnotations.Extensions.Models
 {
     /// <summary>
     /// Serialized json result.

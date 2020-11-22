@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using QoDL.DataAnnotations.LibraryValidation.Models;
 using QoDL.DataAnnotations.LibraryValidation.Utils;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace QoDL.DataAnnotations.LibraryValidation.Extensions
@@ -45,24 +44,6 @@ namespace QoDL.DataAnnotations.LibraryValidation.Extensions
             }
 
             string json = SerializeJson(definition);
-            return new MvcHtmlString(json);
-        }
-
-        /// <summary>
-        /// Get a dictionary of all errors in the model.
-        /// </summary>
-        public static Dictionary<string, string> GetModelErrorsDictionary(this HtmlHelper html)
-        {
-            return html.ViewData.ModelState.GetModelErrorsAsDictionary();
-        }
-
-        /// <summary>
-        /// Get a dictionary of all errors in the model as json.
-        /// </summary>
-        public static MvcHtmlString GetModelErrorsDictionaryAsJson(this HtmlHelper html)
-        {
-            var data = html.ViewData.ModelState.GetModelErrorsAsDictionary() ?? new Dictionary<string, string>();
-            string json = SerializeJson(data);
             return new MvcHtmlString(json);
         }
 

@@ -1,7 +1,7 @@
-﻿using QoDL.DataAnnotations.LibraryValidation.Extensions;
+﻿using QoDL.DataAnnotations.Extensions.Extensions;
 using System.Collections.Generic;
 
-namespace QoDL.DataAnnotations.LibraryValidation.Models
+namespace QoDL.DataAnnotations.Extensions.Models
 {
     /// <summary>
     /// Type that is serialized in <see cref="ModelStateDictionaryExtensions.CreateJsonResult"/>

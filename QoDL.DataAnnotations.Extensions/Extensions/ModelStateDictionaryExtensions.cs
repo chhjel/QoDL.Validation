@@ -1,12 +1,12 @@
 ﻿#if NETFULL
-using QoDL.DataAnnotations.LibraryValidation.Models;
+using QoDL.DataAnnotations.Extensions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 
-namespace QoDL.DataAnnotations.LibraryValidation.Extensions
+namespace QoDL.DataAnnotations.Extensions.Extensions
 {
     /// <summary>
     /// Extension methods for <see cref="ModelStateDictionary"/>.

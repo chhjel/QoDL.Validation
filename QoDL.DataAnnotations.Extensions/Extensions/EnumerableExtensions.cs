@@ -3,7 +3,7 @@
 using System.Linq;
 #endif
 
-namespace QoDL.DataAnnotations.LibraryValidation.Extensions
+namespace QoDL.DataAnnotations.Extensions.Extensions
 {
     internal static class EnumerableExtensions
     {

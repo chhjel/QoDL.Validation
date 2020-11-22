@@ -1,18 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;net472</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Configurations>Debug;Release</Configurations>
     <OutputPath>bin\$(Configuration)\$(TargetFrameworkVersion)\</OutputPath>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\QoDL.DataAnnotations.LibraryValidation.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\QoDL.DataAnnotations.Extensions.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>ChristianH</Authors>
     <Company>ChristianH</Company>
     <Copyright>ChristianH</Copyright>
     <Version>1.0.1</Version>
-    <Description>Allows for a shared library of validation methods that can be reused where data annotation is not suitable.</Description>
-    <PackageProjectUrl>https://github.com/chhjel/QoDL.Validation/tree/main/QoDL.DataAnnotations.LibraryValidation</PackageProjectUrl>
+    <Description>Contains extensions for modelstate.</Description>
+    <PackageProjectUrl>https://github.com/chhjel/QoDL.Validation/tree/main/QoDL.DataAnnotations.Extensions</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -44,9 +44,6 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net472' ">
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
     <Reference Include="System.Web" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QoDL.DataAnnotations.Extensions\QoDL.DataAnnotations.Extensions.csproj" />
   </ItemGroup>
   <!-- ####################################### -->
 

@@ -167,7 +167,7 @@ public ActionResult Submit(TestModel model)
     }
 
     var result = _service.Update(model);
-    if (result.Success)
+    if (!result.Success)
     {
         // Optionally pass along a generic error message.
         return ModelState.CreateJsonResult(result.Error);
