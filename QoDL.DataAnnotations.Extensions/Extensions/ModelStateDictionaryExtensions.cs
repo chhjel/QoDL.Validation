@@ -106,18 +106,21 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
 
         /// <summary>
         /// Create a json result with a dictionary containing any invalid property names and their errors.
+        /// <para>Optionally with an error message if any model state issues were found.</para>
         /// </summary>
         public static ActionResult CreateJsonResult(this ModelStateDictionary modelState,
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string errorMessageIfNotSuccess = null)
         {
             var modelErrors = modelState.GetModelErrorsAsDictionary();
 
+            var success = modelState.IsValid;
             var resultObject = new ModelValidatedResult
             {
-                Success = modelState.IsValid,
-                Error = null,
+                Success = success,
+                Error = success ? null : errorMessageIfNotSuccess,
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
