@@ -36,3 +36,7 @@ public ActionResult Submit(TestModel model)
     // ModelState.CreateJsonResult(data)
 }
 ```
+
+## Developer details
+
+To enable developer details output you must configure `QoDLDataAnnotationsGlobalConfig.EnableDeveloperDetails` to return true.

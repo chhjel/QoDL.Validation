@@ -31,13 +31,15 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
         public static ActionResult CreateJsonResultSuccess(this ModelStateDictionary modelState,
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string devDetails = null)
         {
             var resultObject = new ModelValidatedResult
             {
                 Success = true,
                 Flags = flags.CreateHashSet()
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
@@ -48,7 +50,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
             TData data,
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string devDetails = null)
         {
             var resultObject = new ModelValidatedResult<TData>
             {
@@ -56,6 +59,7 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 Data = data,
                 Flags = flags.CreateHashSet()
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
@@ -66,7 +70,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
             string error,
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string devDetails = null)
         {
             var modelErrors = modelState.GetModelErrorsAsDictionary();
 
@@ -77,6 +82,7 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
@@ -88,7 +94,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
             TData data = null,
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string devDetails = null)
             where TData: class
         {
             var modelErrors = modelState.GetModelErrorsAsDictionary();
@@ -101,6 +108,7 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
@@ -112,7 +120,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
             IEnumerable<string> flags = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
             int? statusCode = null,
-            string errorMessageIfNotSuccess = null)
+            string errorMessageIfNotSuccess = null,
+            string devDetails = null)
         {
             var modelErrors = modelState.GetModelErrorsAsDictionary();
 
@@ -124,6 +133,7 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
@@ -135,7 +145,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
             IEnumerable<string> flags = null,
             string error = null,
             JsonRequestBehavior requestBehavior = JsonRequestBehavior.AllowGet,
-            int? statusCode = null)
+            int? statusCode = null,
+            string devDetails = null)
         {
             var modelErrors = modelState.GetModelErrorsAsDictionary();
 
@@ -147,6 +158,7 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 Error = error,
                 ModelErrors = modelErrors
             };
+            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
             return new JsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
