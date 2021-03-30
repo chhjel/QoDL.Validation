@@ -19,7 +19,26 @@ namespace QoDL.DataAnnotations.Extensions
         /// </summary>
         public static Action<ModelValidatedResult, string> DeveloperDetailsAction { get; set; } = DefaultDeveloperDetailsAction;
 
-        internal static void ApplyDeveloperDetailsIfEnabled(ModelValidatedResult result, string devDetails)
+        /// <summary>
+        /// This callback is invoked after result model is created by any extension method.
+        /// <para>String parameter is the devDetails if any.</para>
+        /// <para>Returned value will be serialized to json and returned.</para>
+        /// </summary>
+        public static Func<ModelValidatedResult, string, ModelValidatedResult> ResultPostProcessAction { get; set; }
+
+        /// <summary>
+        /// This method is invoked after result model is created by any extension method.
+        /// </summary>
+        public static ModelValidatedResult PostProcessResult(ModelValidatedResult result, string devDetails)
+        {
+            ApplyDeveloperDetailsIfEnabled(result, devDetails);
+            return ResultPostProcessAction?.Invoke(result, devDetails) ?? result;
+        }
+
+        /// <summary>
+        /// Apply the given dev details if its enabled.
+        /// </summary>
+        public static void ApplyDeveloperDetailsIfEnabled(ModelValidatedResult result, string devDetails)
         {
             if (string.IsNullOrWhiteSpace(devDetails) || EnableDeveloperDetails?.Invoke() != true)
             {

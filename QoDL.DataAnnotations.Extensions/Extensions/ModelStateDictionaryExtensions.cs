@@ -39,8 +39,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 Success = true,
                 Flags = flags.CreateHashSet()
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 Data = data,
                 Flags = flags.CreateHashSet()
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>
@@ -133,8 +133,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 ModelErrors = modelErrors,
                 Flags = flags.CreateHashSet()
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace QoDL.DataAnnotations.Extensions.Extensions
                 Error = error,
                 ModelErrors = modelErrors
             };
-            QoDLDataAnnotationsGlobalConfig.ApplyDeveloperDetailsIfEnabled(resultObject, devDetails);
-            return new JsonContentResult(resultObject, requestBehavior, statusCode);
+            QoDLDataAnnotationsGlobalConfig.PostProcessResult(resultObject, devDetails);
+            return new QoDLJsonContentResult(resultObject, requestBehavior, statusCode);
         }
 
         /// <summary>

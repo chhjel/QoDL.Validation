@@ -37,6 +37,7 @@ public ActionResult Submit(TestModel model)
 }
 ```
 
-## Developer details
+## Global config
 
-To enable developer details output you must configure `QoDLDataAnnotationsGlobalConfig.EnableDeveloperDetails` to return true.
+* To override returned results globally `QoDLDataAnnotationsGlobalConfig.ResultPostProcessAction` can be set.
+* To enable developer details output you must configure `QoDLDataAnnotationsGlobalConfig.EnableDeveloperDetails` to return true.
