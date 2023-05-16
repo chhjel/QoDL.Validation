@@ -41,3 +41,11 @@ public ActionResult Submit(TestModel model)
 
 * To override returned results globally `QoDLDataAnnotationsGlobalConfig.ResultPostProcessAction` can be set.
 * To enable developer details output you must configure `QoDLDataAnnotationsGlobalConfig.EnableDeveloperDetails` to return true.
+* Json serializer settings can be configured through `QoDLDataAnnotationsGlobalConfig.DefaultSerializerSettings`, e.g:
+
+    ```csharp
+    QoDLDataAnnotationsGlobalConfig.DefaultSerializerSettings = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
+    ```

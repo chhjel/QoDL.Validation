@@ -1,5 +1,8 @@
 ﻿using QoDL.DataAnnotations.Extensions.Models;
 using System;
+#if NETFRAMEWORK
+using Newtonsoft.Json;
+#endif
 
 namespace QoDL.DataAnnotations.Extensions
 {
@@ -25,6 +28,19 @@ namespace QoDL.DataAnnotations.Extensions
         /// <para>Returned value will be serialized to json and returned.</para>
         /// </summary>
         public static Func<ModelValidatedResult, string, ModelValidatedResult> ResultPostProcessAction { get; set; }
+
+#if NETFRAMEWORK
+        /// <summary>
+        /// Default serializer settings used for Json results.
+        /// </summary>
+        public static JsonSerializerSettings DefaultSerializerSettings { get; set; }
+
+#elif NETCORE
+        /// <summary>
+        /// Default serializer settings used for Json results.
+        /// </summary>
+        public static System.Text.Json.JsonSerializerOptions DefaultSerializerSettings { get; set; }
+#endif
 
         /// <summary>
         /// This method is invoked after result model is created by any extension method.

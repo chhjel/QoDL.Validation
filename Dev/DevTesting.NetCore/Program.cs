@@ -1,11 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using QoDL.DataAnnotations.Extensions;
+using System.Text.Json;
 
 namespace DevTesting.NetCore
 {
@@ -13,6 +9,11 @@ namespace DevTesting.NetCore
     {
         public static void Main(string[] args)
         {
+            QoDLDataAnnotationsGlobalConfig.DefaultSerializerSettings = new()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
             CreateHostBuilder(args).Build().Run();
         }
 

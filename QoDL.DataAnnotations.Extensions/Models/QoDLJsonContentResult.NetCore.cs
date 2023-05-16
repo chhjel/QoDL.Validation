@@ -1,7 +1,5 @@
 ﻿#if NETCORE
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,11 +60,12 @@ namespace QoDL.DataAnnotations.Extensions.Models
                 response.StatusCode = StatusCode.Value;
             }
 
-            var jsonResult = new JsonResult(Data)
+            var jsonResult = new JsonResult(Data, QoDLDataAnnotationsGlobalConfig.DefaultSerializerSettings)
             {
                 StatusCode = StatusCode,
                 ContentType = ContentType
             };
+
             await jsonResult.ExecuteResultAsync(context);
         }
     }

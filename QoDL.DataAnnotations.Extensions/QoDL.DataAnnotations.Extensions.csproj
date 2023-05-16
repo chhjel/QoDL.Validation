@@ -54,8 +54,7 @@
   </PropertyGroup>
   <!-- References -->
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.0.0" />
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
   </ItemGroup>
   <!-- ####################################### -->

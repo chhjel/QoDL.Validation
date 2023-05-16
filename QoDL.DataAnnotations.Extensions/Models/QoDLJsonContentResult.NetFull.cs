@@ -67,11 +67,12 @@ namespace QoDL.DataAnnotations.Extensions.Models
             {
                 response.Write("null");
             }
-
-            var jsonSerializerSettings = new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            };
+            
+            var jsonSerializerSettings = QoDLDataAnnotationsGlobalConfig.DefaultSerializerSettings
+                ?? new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                };
 
             response.Write(JsonConvert.SerializeObject(Data, Formatting.Indented, jsonSerializerSettings));
         }
